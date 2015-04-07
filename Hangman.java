@@ -22,42 +22,46 @@ public class Hangman
           lives--;
           {
             if (lives == 1)
-          {
-            System.out.print("Sorry, wrong answer. You have " + lives + " life left. ");
-            System.out.println(playerAnswer);
-          }
+            {
+              System.out.print("Sorry, wrong answer. You have " + lives + " life left. ");
+              System.out.println(playerAnswer);
+            }
             
-          else if (lives == 0)
-          {
-            System.out.print("You didn't guess the word. It was " + hma.getAnswer() + ".");
-          }
-
-          else 
+            else if (lives == 0)
+            {
+              System.out.print("You didn't guess the word. It was " + hma.getAnswer() + ".");
+            }
+            
+            else 
             {
               System.out.print("Sorry, wrong answer. You have " + lives + " lives left. ");
               System.out.println(playerAnswer);
             }
           }    
-         
+          
         }
-   
-        
-    else 
+        else 
         {
           right ++;
           if (right == 5)
           {
             playerAnswer = playerAnswer.substring(0, found * 2) + guess + playerAnswer.substring(found * 2 + 1);
             System.out.print("Good Job!You guessed " + playerAnswer + " correctly!");
-          }
-
-
-          
+          }  
           else
           {
-            System.out.print("There is a(n) " + guess + " in the word. ");
-            playerAnswer = playerAnswer.substring(0, found * 2) + guess + playerAnswer.substring(found * 2 + 1);
-            System.out.print(playerAnswer);
+            if (guess.equals("a") || guess.equals("e") || guess.equals("i") || guess.equals("o") || guess.equals("u"))
+            {
+              System.out.print("There is an " + guess + " in the word. ");
+              playerAnswer = playerAnswer.substring(0, found * 2) + guess + playerAnswer.substring(found * 2 + 1);
+              System.out.print(playerAnswer);
+            }
+            else 
+            {
+              System.out.print("There is a " + guess + " in the word. ");
+              playerAnswer = playerAnswer.substring(0, found * 2) + guess + playerAnswer.substring(found * 2 + 1);
+              System.out.print(playerAnswer);
+            }
           }
         }
       }
