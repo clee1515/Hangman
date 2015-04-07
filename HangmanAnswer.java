@@ -1,18 +1,20 @@
-
+import java.util.ArrayList;
+import java.io.IOException;
+import java.io.File;
 import java.util.Scanner;
 
-public class Answer
+public class HangmanAnswer
 { 
-  
   Scanner in;
   ArrayList<String> words = new ArrayList<String>();
-  public Answer()
+  String answer = "";
+  
+  public HangmanAnswer()
   { // loads in contents of words into new ArrayList
     int counter = 0;
     try
     {
       in = new Scanner(new File("words.txt"));
-// in = new Scanner(new File("~/Documents/words.txt"));
       while(in.hasNext())
       {
         words.add(in.next());
@@ -25,13 +27,17 @@ public class Answer
     }
     System.out.println(counter + " words loaded in.");
     System.out.println("Size of ArrayList: " + words.size());
-// find a five-letter word and copy it into instance variable
+    
+    while (answer.length() != 5)
+    {
+      int random = (int)(Math.random() * words.size());
+      answer = words.get(random);
+    }
+    System.out.println(answer);
   }
   
-  public void play()
+  public String getAnswer()
   {
-    //
-    System.out.println("ready.");
+    return answer;
   }
 }
-String random = 
