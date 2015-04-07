@@ -7,8 +7,9 @@ public class HangmanAnswer
 { 
   Scanner in;
   ArrayList<String> words = new ArrayList<String>();
-  String answer = "  ";
+  String answer = "";
   
+  public HangmanAnswer()
   { // loads in contents of words into new ArrayList
     int counter = 0;
     try
@@ -31,17 +32,10 @@ public class HangmanAnswer
     {
       int random = (int)(Math.random() * words.size());
       answer = words.get(random);
-      
-      {
-        String input = answer;
-        String lower = input.toLowerCase();
-      }
-      
-      {
-        System.out.print(answer + "     ");
-      }
     }
+    System.out.println(answer);
   }
+  
   public String getAnswer()
   {
     return answer;
