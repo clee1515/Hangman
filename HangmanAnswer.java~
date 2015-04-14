@@ -7,9 +7,9 @@ public class HangmanAnswer
 { 
   Scanner in;
   ArrayList<String> words = new ArrayList<String>();
-  String answer = "";
+  String answer = "  ";
+  boolean x = false;
   
-  public HangmanAnswer()
   { // loads in contents of words into new ArrayList
     int counter = 0;
     try
@@ -27,17 +27,38 @@ public class HangmanAnswer
     }
     System.out.println(counter + " words loaded in.");
     System.out.println("Size of ArrayList: " + words.size());
+    System.out.println(" ");
+    System.out.println(" ");
+    System.out.println(" ");
+    System.out.println("Welcome to Hangman!");
     
-    while (answer.length() != 5)
+    while (answer.length() != 5 || x == true)
     {
       int random = (int)(Math.random() * words.size());
       answer = words.get(random);
+      x = false;
+      for (int i = 0; i < answer.length(); i++)
+      {
+        for (int o = 0; o < answer.length(); o++)
+        {
+          if (o != i)
+          {
+            if (answer.substring(i,i+1).equals(answer.substring(o,o+1)))
+            {
+              x = true;
+            }
+          }
+        }
+      }
     }
-    System.out.println(answer);
+    {
+      String input = answer;
+      String lower = input.toLowerCase();
+      System.out.print(lower + "     ");
+    }
   }
-  
   public String getAnswer()
   {
-    return answer;
+    return answer.toLowerCase();
   }
 }

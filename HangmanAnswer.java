@@ -27,8 +27,12 @@ public class HangmanAnswer
     }
     System.out.println(counter + " words loaded in.");
     System.out.println("Size of ArrayList: " + words.size());
+    System.out.println(" ");//simply to make the above not visible, but still accessible
+    System.out.println(" ");
+    System.out.println(" ");
+    System.out.println("Welcome to Hangman!");
     
-    while (answer.length() != 5 || x == true)
+    while (answer.length() != 5 || x == true)//if the found answer isn't 5 letters or has 2 of the same letter in it, the program finds a new word. 
     {
       int random = (int)(Math.random() * words.size());
       answer = words.get(random);
@@ -41,7 +45,7 @@ public class HangmanAnswer
           {
             if (answer.substring(i,i+1).equals(answer.substring(o,o+1)))
             {
-              x = true;
+              x = true;//if there are two of the same letters, x becomes true. 
             }
           }
         }
@@ -49,8 +53,7 @@ public class HangmanAnswer
     }
     {
       String input = answer;
-      String lower = input.toLowerCase();
-      System.out.print(lower + "     ");
+      String lower = input.toLowerCase();//the computer sees a capital letter and a lower case letter as two different characters, so I needed to make the word all lower case in order for it to work.
     }
   }
   public String getAnswer()
